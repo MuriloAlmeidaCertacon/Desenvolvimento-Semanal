@@ -14,7 +14,7 @@
 
 Em 3–4 linhas:
 - O que você mais estudou?
-Nesta semana meu foco esteve em continuar meus estudos na implementação de observa.
+Nesta semana meu foco esteve em continuar meus estudos na implementação de observabilidade de métricas dos serviços com prometheus e telegraf. Estudando sobre como funciona subir um serviço so prometheus como scrape da seua aplicação e então como configurar uma aplicação para gerar e processar as métricas que o prometheus coletará. 
 
 - O que mais evoluiu?
 No geral, eu evolui o meu pensamento e planejamento de demandas eimplementações, aplicando o conceito de agentes que resolvem não apenas a demanda, mas toda a sua integração com o serviço em si, dando mais segurança que o que eu desenvolvi está de fato funcionando.
