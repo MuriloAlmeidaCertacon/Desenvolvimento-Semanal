@@ -1,4 +1,4 @@
-# Desenvolvimento semanal - VIII
+# Desenvolvimento semanal - IX
 
 ## Identificação
 
@@ -20,17 +20,17 @@ Processos com Claude Code, seja a utilização dos arquivos de documentação pa
 Implementações e validações sem a necessidade de codificação. Foquei principalmente em desenvolver boas instruções, analisar os resultados, validar, planejar, replanejar. Acredito que estou mais confiante na minha parte de análise de código e não apenas implementação.
 
 - Foi uma semana produtiva? Por quê?
-Acredito que sim, não deixei de cumprir com minhas demandas e solicitações, ao mesmo passo que me organizei para estudos, continuei com implementações antigas e busquei sempre estar por dentro do que o time estava trabalhando, buscando entender e oferecer ajuda para todos.
+Ao meu ver sim, trabalhei conceitos estudados, implementei soluções novas, participei de dinâmicas em grupo e apresentei resultados desenvolvidos.
 
 ### Fundamentos trabalhados
 
 Liste os principais conceitos que estudou:
 
-- Claude Agents
-- Prometheus Scrape
+- Claude Code (Agents e Context)
+- GitHub Workflows
 
 Qual deles você entende melhor hoje do que na semana passada? Explique em 1–2 frases.
-Captura de dados com Prometheus foi uma grande descoberta, eu havia testado utilizando o plugin do Telegraf sem entender muito sobre como funcionava, agora que eu vejo vomo eu fico surpreso sobre como funciona.
+No geral eu digo que o GitHub Workflows por ser algo que eu nunca tinha pego e colocado a mão na massa para fazer, sabia da existência mas não entendia muito bem sobre como funcionava e como implementar, e agora estou mais próximo disso.
 
 ---
 
@@ -39,49 +39,50 @@ Captura de dados com Prometheus foi uma grande descoberta, eu havia testado util
 Essa seção é sobre o **dia a dia real** — tickets, PRs, bugs, tarefas. É aqui que estudo vira evolução de verdade.
 
 - O que fiz (tickets/tarefas/PRs):
-Conclui as validações da automação de validação de tarefas do Runrun.it solicitada pela Certa University. Além da criação de grupos empresariais, contratos e geração de relatórios do Skytax360 solicitados
+-> Ajustes gerais na exibição de dados da seção de reforma tributária por produto no comportamento fiscal.
+-> Validação de conformidade de XML Nfe em relação ao RTC (informar se o XML possui ou não os campos de IBS e CBS).
+-> Implementação de Logs e Prometheus no serviço do CNPJ Consultation para testes de coletas de métricas dos serviços com Telegraf.
+-> Configuração de contexto geral para diversos repostórios do CertaSky por meio de um CLAUDE.md para cada, auxílio na implementação da validação de PRs utilizando Claude API.
+-> Criação de nova role de projetos externos par aconceder novas permissões ao Fernando Amaral
 
 - Link de evidência (PR, commit, ticket):
-https://github.com/Grupo-Certacon/CertaUniversityValidateRunrunTasksAutomate/commit/d6685d752b45e2e79ea581d743d0f4e8f52d37f1
+https://github.com/Grupo-Certacon/MsCertaSkyXMLRTCValidator/commit/8bedd7381de6b05bfede21057824b5d46314dcc9
+https://github.com/Grupo-Certacon/MsCertaSkyFiscalBehavior/commit/3866af688a7a9754d2211f16b88ad172248c94b4
+https://github.com/Grupo-Certacon/MsCertaSkyAuth/commit/8b93348996e85b194691c9afe54f21ffcfbf5e99
+https://github.com/Grupo-Certacon/MsCertaSkyWebApp/commit/1e3866e446a60181869f4fbb588beed9044d79b2
+
 
 - Onde travei e como destravei:
-Um dos meiores reavamentos foi quando estive auxiliando o Ian e o Rafa na problemática de bloqueio de rede, na qual eu precisva estudar em conjunto o que estava acontecendo (compartilhando idéias e conhecimento sobre o que estudava), destravei portanto de diversas formas, mas acredito que uma essencial foi desenvolver curtos scripts de testes das soluções encontradas, junto de agentes de IA de desenvolvendo a leitura de código fui entendendo e podendo sugerir novos caminhos por conta própria (não apenas os sugeridos pelo chat) e assim por diante. Então destravei testando e pondo à prova o que foi pesquisado.
+No início da criação do validador XML eu travei por não ter entendido muito bem o que foi solicitado e como eu o faria, destravei buscando informações e pedindo ajuda para a Wilecy que foi quem abriu o chamado para a demanda e pedi uma ligação com a mesma para me explicar certinho.
 
 - O que aprendi fazendo isso:
-Aprendi que por mais que uma explicação conceitual esteja de fato bem explicada e intuitiva, ver como o código funciona na prática ainda é um mecanismo essencial para a compreensão e aplicação do mesmo, principalmente para códigos complexos com muitas etapas.
+Entendi que a primeira coisa a se fazer ao receber uma solicitação de um outro alguém é conversar bem com esse alguém para entender de fato o que a pessoa necessita (nem sempre é o que ela pede)
 
 - Pedi ajuda pra quem? Sobre o quê?:
-Para muita gente, mas no geral um exemplo foi eu ter pedido ajuda para o Gustavo que já havia me dito que tinha feito várias automações web com selenium, pedi ajuda para ele para saber quais são as melhores opções possíveis de proxys para utilizarmos, e como implementaríamos.
+Pedi ajuda para o Ian sobre como criar bons prompts, para a Mariana sobre como criar e validar a nova role, para o Gustavo sobre como implementar os github workflows e assim por diante. Pedi ajuda para várias pessoas sobre várias coisas, sempre pensando que é muito melhor contar com a ajuda e experiência do time do que quebrar a cabeça sozinho.
 
 ---
 
-## 3) Mini-projeto - Não houve
+## 3) Mini-projeto - Validador RTC XML
 
-Como foi uma semana mais focada em estudos, ajudar com demandas e terminar de validar as automações do Runrun.it, não houve um mini-projeto nesta semana
+- O que o projeto faz hoje?:
+Trata-se de uma API que recebe como parâmetro de rota um arquivo XML de uma Nfe e então valida se o mesmo está em conformidade com a RTC, verificando se o XML possui os blocos refrentes aos valores de IBS e CBS.
+
+- O que foi implementado ou melhorado nesta semana?:
+A arquitetura geral e funções principais do projeto sendo elas a API, logs e prometheus para observabilidade, rota health para verificação de disponibilidade e esquma para mensageria pensando no processamento em lote.
+
+- Link do commit/PR (obrigatório):
+https://github.com/Grupo-Certacon/MsCertaSkyXMLRTCValidator/commit/1ddf051325ab6df6d5db6dcb9b576b51815d1c54
+
+- Qual foi a maior dificuldade?
+Entender o escopo inicial, o que é essa validação e como fazer. Após explicações com a solicitante e também conversas e análise foi desenvolvida a ideia de validação em blocos do arquivo, porém, no início foi feita uma implementação não tão otimizada com seleniumbase. Portanto a maior dificuldade estava no entendimento e planejamento inicial.
+
+- O que mudou no comportamento do sistema com essa mudança?
+Por hora, tudo. Ele foi criado do zero nessa semana.
 
 ---
 
-## 4) LeetCode
-
-### Problema 1
-
-- Nome / Link: Find Peak Element / https://leetcode.com/problems/find-peak-element/description/
-- Categoria: Array, Binary Search
-
-**Explique o problema com suas palavras:**
-
-O problema consistia em analisar uma lista de números e então eu retorno o número que é o maior em relação aos seus vizinhos, e é também o maior nesse caso dentro da lista, isso é, eu preciso do íncice do valor em que o valor anterior e o valor seguinte sejam menores que o mesmo, e caso hajam vários valores nesta lista que atendam à esses requisitos, eu retorno o íncide do maior deles.
-
-**Sua solução:**
-- Qual foi a ideia principal?: bom, se o item é o maior entre seus vizinhos, e temos que pegar o maior número que atenda à esses requisitos, então esse número será o maior da lista inteira, sendo aassim basta retornar o índice do maior valor presente na lista. (está como médio, mas acabou sendo um nível fácil)
-
-- Que estrutura de dados usou?: Apenas métodos de listas e arrays com python.
-
-- Por que escolheu essa abordagem?: Por ser a mais otimizada e eficiente possível.
-
-**O que aprendeu:**
-
-Nada em específico, apenas aprendi a analisar bem o exercício antes de começar a planejar um algoritmo e implementar em código.
+## 4) LeetCode - Não terminei meu LeetCode da semana
 
 ---
 
@@ -89,16 +90,17 @@ Nada em específico, apenas aprendi a analisar bem o exercício antes de começa
 
 Quero entender como você está usando IA no geral — no estudo, no LeetCode, no trabalho, no mini-projeto. Tudo junto aqui.
 
-- Onde a IA te ajudou (conceito, dica, debug, explicação): Utilizei IA para realizar pesquisas de possíveis soluções e para automatizar implementações paralelas à implementação principal de uma demanda, como rodar e adaptar testes unitários cobrindo o sistema ou fazendo documentação do que foi alterado e novas documentações do serviço.
+- Onde a IA te ajudou (conceito, dica, debug, explicação):
+Me ajudou em grande parte da produção e validação de código, sendo essencial para os resultados alcançados e ajudando em todas as áreas com conceitos, dicas explicação, debug e muitos outros.
 
 - Algo que tentei fazer **sem IA** e consegui:
-Tentei revalidar e corrigir os eventuais erros de lógica nas automações do Runrun.it para a Certa University, utilizando apenas os logs de erro e o modo debug para encontrar meus erros de lógica no código.
+No geral, tarefas de processos bem definidos e explicados como a criação de grupos empresariais e contratos na pltaforma do CertaSky Autônomo e Logus. Além da criação da nova role para usuários no SkyTax interno.
 
 - Algo que tentei fazer **sem IA** e não consegui (e o que fiz depois):
-Tentei fazer um Leet Code, no entanto alguns erros que eu não conhecia estava aparecendo, tentei encontrar o erro sem IA e não consegui, então pedi para a IA analisar o console de erro e me dizer as prováveis causas.
+Tentei remover os resultados duplicados na listagem de produtos extremos do comportamento fiscal, aqueles que trarão mais impactos após o período da reforma, quando não consegui, pedi ajuda para o GPT perguntan
 
 - 1 coisa que aprendi usando IA que não teria aprendido sozinho:
-Algumas coisas bem específicas durante as pesquisas que eu realizei sobre bloqueio de rede e proxy, como por exemplo níveis de dificuldade de bloquear o acesso de uma rede à uma página web, dependendo do tipo de IP da rede (a diferença de rastreabilidade de IP de servidores, IP de máquina doméstica ou IP e redes móveis como o 4G ou 5G).
+Aprendi a lidar melhor com a própria IA, aprimorando a elaboração de prompts, contextos, utilização de recursos e planejamento de implementações com a mesma.
 
 ---
 
@@ -106,10 +108,10 @@ Algumas coisas bem específicas durante as pesquisas que eu realizei sobre bloqu
 
 Liste as principais dificuldades:
 
-- Ajudar o Ian em procurar soluções para o bloqueio da rede na automação de débitos ativos
+- 
 
 O que você acha que causou essas dificuldades?
-Acredito que tenha sido a falta de conhecimento de posssíveis soluções, fazendo com que eu tenha que pesquisar e tentar soluções do zero, mesmo já dsabendo do contexto geral do problema.
+
 
 ---
 
@@ -119,13 +121,13 @@ Marque o que você **realmente sentiu que melhorou** essa semana:
 
 - [ ] Consigo ler um erro no terminal e entender o que ele pede
 - [X] Consigo criar uma função do zero sem consultar exemplo
-- [X] Consigo ler código de outra pessoa e entender o fluxo
-- [ ] Consigo fazer um PR sem pedir ajuda no meio
+- [ ] Consigo ler código de outra pessoa e entender o fluxo
+- [X] Consigo fazer um PR sem pedir ajuda no meio
 - [X] Consigo explicar um conceito que antes não entendia
-- [ ] Me sinto mais confiante pra começar uma tarefa sozinho
+- [X] Me sinto mais confiante pra começar uma tarefa sozinho
 
 Escolha **1** que marcou e explique brevemente o que mudou:
-Digo que aprendi um pouco mais sobre como criar uma função do zero, tendo em vista as validações e correções nas automações do Runrun.it, isso porque tive de analisar os atributos e métodos das classes, validar os parâmetros e retornos de métodos e sua combinação em funções e etapas maiores.
+A ideia de fazer uma PR é a mais interessante, pois uma das tarefas realizadas na semana foi justamente a de validação de PRs, assim eu me sinto bem mais confiante a abrir uma PR sem precisar de validações extras que tomam muito do tempo.
 
 ---
 
@@ -133,15 +135,15 @@ Digo que aprendi um pouco mais sobre como criar uma função do zero, tendo em v
 
 ### O que faria diferente?
 
-Se pudesse refazer essa semana, o que mudaria?: acredito que focaria ainda mais em meus estudos do claude agents, afinal de contas é um conhecimento que irá me auxiliar a alavancar em diversas áreas e demandas.
+Se pudesse refazer essa semana, o que mudaria?: A principal de todas seria praticar mais o meu estudo de caso para desenvolver uma solução. Não se pode apenas começar a implementação pela solução que vc já conhece, tem que explorar todas as outras possíveis a fim de encontrar a melhor. Teria me poupado um certo tempo para avançar ainda mais no desenvolvimento do validador do XML.
 
 ### Plano para a próxima semana
 
-- O que quero aprender: Quero aprender a lidar melhor com o claude agents e quero aprender todas as etapas de geração de relatórios no Skytax360 para poder atuar e ajudar a equipe com as solicitações de geração de relatório em ambientes diversos.
+- O que quero aprender: 
 
-- Em que preciso melhorar: Minha velocidade em implementar uma nova solução ou em buscar formas de resolver um problema. No tempo atual em que eu pesquiso, testo, aplico e então consolido uma nova implementação está demorando demais, e se for a forma de resolver um determinado erro acaba sendo ainda pior, já que pode demorar até eu achar de fato uma solução e implementar completamente testada, e durante esse tempo eu permaneço imcapaz de fornecer sequer um prazo.
+- Em que preciso melhorar:
 
-- Foco principal: Será em finalmente criar o índice de documentação de agentes e em criar, configurar e realizar aplicações com os mesmos, dando um passo a mais no refactor do CertaSky.
+- Foco principal:
 
 ---
 
@@ -159,11 +161,11 @@ Dê uma nota **0–3** em cada eixo:
 
 - Estudo:  2/3 —
 - Trabalho real: 2/3 —
-- LeetCode: 2/3 —
-- Mini-projeto: 0/3 —
+- LeetCode: 0/3 —
+- Mini-projeto: 2/3 —
 - Atitude: 2/3 —
 
-**Total: 7/15**
+**Total: 8/15**
 
 ---
 
