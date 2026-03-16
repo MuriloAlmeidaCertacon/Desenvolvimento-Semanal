@@ -108,10 +108,10 @@ Aprendi a lidar melhor com a própria IA, aprimorando a elaboração de prompts,
 
 Liste as principais dificuldades:
 
-- 
+- Acredito que a principal dificuldade da semana foi como lidar com os agentes de IA da maneira mais efiiente e produtiva possível, causando momentos extras de planejamento e retrabalho.
 
 O que você acha que causou essas dificuldades?
-
+Acho que por eu ainda estar inciando nesta modalidade de codificação e ainda estar pegando o esquema.
 
 ---
 
@@ -139,11 +139,11 @@ Se pudesse refazer essa semana, o que mudaria?: A principal de todas seria prati
 
 ### Plano para a próxima semana
 
-- O que quero aprender: 
+- O que quero aprender: Gostaria de trabalhar melhor com diversos projetos simultaneamente utilizando a IA, e em diversas etapas em paralelo deste projeto.
 
-- Em que preciso melhorar:
+- Em que preciso melhorar: Planejamento inicial, gestão de tempo e contexto.
 
-- Foco principal:
+- Foco principal: Implementar um mini projeto de app com IA.
 
 ---
 
